@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tabla con Bootstrap</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.1.0/css/bootstrap.min.css">
+    <style>
+        .table-light-vibrant {
+            background-color: #fcf8e3;
+        }
+        .table-dark-vibrant {
+            background-color: #f4b400;
+        }
+    </style>
+</head>
+<body>
+<table class="table">
+    <thead class="bg-primary">
+    <tr>
+        <th scope="col">Nombre Sucursal</th>
+        <th scope="col">País Sucursal</th>
+        <th scope="col">Tipo Sucursal</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="sucursal, iterStat : ${sucursales}"
+        th:class="${iterStat.index % 2 == 0} ? 'table-light-vibrant' : 'table-dark-vibrant'">
+        <td th:text="${sucursal.nombreSucursal}"></td>
+        <td th:text="${sucursal.paisSucursal}"></td>
+        <td th:text="${sucursal.tipoSucursal}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<script src="/webjars/bootstrap/5.1.0/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
